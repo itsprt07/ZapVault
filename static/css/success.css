@@ -1,0 +1,126 @@
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #eef2f3);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 550px;
+    width: 90%;
+}
+
+.container h2 {
+    color: #27ae60;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.container .info {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.container a.download-link {
+    color: #ffffff;
+    background: #2980b9;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.container a.download-link:hover {
+    background: #1c5980;
+}
+
+.container img {
+    margin: 25px 0;
+    width: 180px;
+    border-radius: 8px;
+    border: 3px solid #3498db;
+    background: white;
+}
+
+.container small {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.container .expiry {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-top: 10px;
+}
+
+.container .nav-links a {
+    background: #555;
+    color: white;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.container .nav-links a:hover {
+    background: #333;
+}
+
+/* ✅ Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .container h2 {
+        font-size: 22px;
+    }
+
+    .container .info {
+        font-size: 14px;
+    }
+
+    .container a.download-link {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .container img {
+        width: 150px;
+        margin: 20px 0;
+    }
+
+    .container small {
+        font-size: 13px;
+    }
+
+    .container .expiry {
+        font-size: 14px;
+    }
+
+    .container .nav-links a {
+        display: block;
+        margin: 8px auto;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+}

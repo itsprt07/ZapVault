@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928DAB);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #ccc;
+    text-align: center;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #00bcd4;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0097a7;
+}
+
+.toggle {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.toggle a {
+    color: #00e6ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.toggle a:hover {
+    text-decoration: underline;
+}
+
+.msg {
+    margin-bottom: 15px;
+    color: #ffbaba;
+    font-weight: bold;
+    min-height: 18px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+        border-radius: 8px;
+    }
+
+    input {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .toggle {
+        font-size: 13px;
+    }
+
+    .msg {
+        font-size: 13px;
+    }
+}
