@@ -1,0 +1,7 @@
+uploads/
+static/qrs/
+*.db
+__pycache__/
+*.pyc
+venv/
+.env
