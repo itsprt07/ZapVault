@@ -20,15 +20,17 @@ h1 {
 
 .analytics-row {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     flex-wrap: wrap;
+    margin-bottom: 25px;
 }
 
 .analytics-box {
     flex: 1;
-    min-width: 200px;
+    min-width: 250px;
+    max-width: 350px;
     background-color: #1e1e1e;
     color: #fff;
     border-radius: 10px;
@@ -63,43 +65,57 @@ table {
     word-wrap: break-word;
 }
 
-th,
-td {
-    padding: 12px 14px;
+th, td {
+    padding: 12px 10px;
     text-align: center;
     border-bottom: 1px solid #444;
-}
-
-.filename-cell {
-    max-width: 250px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    vertical-align: middle;
 }
 
 th {
     background-color: #00bcd4;
     color: #1f1f2e;
     font-weight: bold;
+    font-size: 15px;
+}
+
+.filename-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 tr:hover {
     background-color: #393955;
 }
 
+.action-cell {
+    display: flex;
+    justify-content: space-between; /* Push buttons evenly inside */
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+}
+
 .action-btn {
-    padding: 6px 12px;
+    padding: 6px 10px;
+    font-size: 13px;
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    margin: 3px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
     display: inline-block;
-    white-space: nowrap;
+    min-width: 75px;
+    text-align: center;
 }
 
-.action-cell {
-    white-space: nowrap;
+.download {
+    background-color: #3498db;
 }
 
 .delete {
@@ -109,6 +125,14 @@ tr:hover {
 .expire {
     background-color: #f39c12;
 }
+
+/* ✅ Adjusted widths to allow space */
+th:nth-child(1), td:nth-child(1) { width: 18%; }
+th:nth-child(2), td:nth-child(2) { width: 18%; }
+th:nth-child(3), td:nth-child(3) { width: 18%; }
+th:nth-child(4), td:nth-child(4) { width: 8%; }
+th:nth-child(5), td:nth-child(5) { width: 12%; }  /* Status */
+th:nth-child(6), td:nth-child(6) { width: 30%; }  /* Actions */
 
 .footer {
     text-align: center;
@@ -128,18 +152,25 @@ tr:hover {
     text-decoration: underline;
 }
 
-/* ✅ Responsive Layout */
+/* ✅ RESPONSIVE FIX */
+@media (max-width: 1024px) {
+    table {
+        font-size: 13px;
+    }
+
+    .action-cell {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .action-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+        min-width: 70px;
+    }
+}
+
 @media (max-width: 768px) {
-    .analytics-row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .analytics-box {
-        width: 100%;
-        max-width: 500px;
-    }
-
     table,
     thead,
     tbody,
@@ -177,10 +208,16 @@ tr:hover {
     }
 
     .action-cell {
-        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 6px;
-        justify-content: flex-start;
+    }
+
+    .action-btn {
+        width: auto;
+        padding: 6px 8px;
+        font-size: 12px;
     }
 
     .filename-cell {

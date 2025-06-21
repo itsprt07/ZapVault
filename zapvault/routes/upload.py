@@ -1,10 +1,9 @@
-from flask import Blueprint, request, session, redirect
+from flask import Blueprint, request, session, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import os
 import uuid
 import qrcode
-from urllib.parse import urljoin
 import pytz
 
 from ..models.user import User
@@ -45,7 +44,8 @@ def upload_page():
             db.session.add(new_file)
             db.session.commit()
 
-            download_url = urljoin(request.host_url, f'download/{file_id}')
+            download_url = url_for('download_bp.download_file', file_id=file_id, _external=True)
+
             qr_img = qrcode.make(download_url)
             qr_path = os.path.join('static/qrs', f'{file_id}.png')
             qr_img.save(qr_path)
@@ -55,7 +55,6 @@ def upload_page():
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-
     <title>Upload Success - ZapVault</title>
     <link rel="stylesheet" href="/static/css/success.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -64,7 +63,7 @@ def upload_page():
     <div class="container">
         <h2>✅ File Uploaded Successfully!</h2>
         <p class="info">Download link (valid for <b>{expiry_minutes}</b> minutes):</p>
-        <a href="/download/{file_id}" class="download-link">{download_url}</a><br>
+        <a href="{download_url}" class="download-link">{download_url}</a><br>
         <img src="/static/qrs/{file_id}.png" alt="QR Code"><br>
         <small>📱 Scan to download</small>
         <p class="expiry">⏰ IST Expiry Time: <b>{expiry_time_ist.strftime('%Y-%m-%d %I:%M:%S %p')}</b></p>
@@ -84,7 +83,6 @@ def upload_page():
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-
     <title>Upload File - ZapVault</title>
     <link rel="stylesheet" href="/static/css/upload.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -93,7 +91,7 @@ def upload_page():
     <div class="upload-container">
         <h1>🚀ZapVault Uploader</h1>
         <p class="subtext">Secure, fast, and self-destructing file sharing at your fingertips.</p>
-        
+
         <form method="POST" action="/upload" enctype="multipart/form-data" class="upload-form">
             <label>Browse your file:</label><br>
             <input type="file" name="file" required><br>
@@ -120,6 +118,3 @@ def upload_page():
 </body>
 </html>
 '''
-
-
-

@@ -63,7 +63,6 @@ def home():
             db.session.commit()
             print(f"✅ New user registered: {email} with token: {token}")
 
-            return render_home(message=f'✅ Account created. Your token is <b>{token}</b>. Use it during login.', form='login')
+            return render_home(message=f'✅ Account created. Your token is <b>{token}</b>. Remember it for future login.', form='login')
 
     return render_home(form=form)
-

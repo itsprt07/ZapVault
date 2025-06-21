@@ -43,4 +43,3 @@ def render_home(message='', form='login'):
     </body>
     </html>
     '''
-
